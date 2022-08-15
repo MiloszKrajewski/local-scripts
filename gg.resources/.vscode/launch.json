@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run .csx file",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "dotnet",
+            "args": ["script", "${file}"],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false
+        }
+    ]
+}
