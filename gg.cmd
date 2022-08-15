@@ -23,6 +23,7 @@ if exist "%FOLDER%\%COMMAND%.csx" goto :csx
 if exist "%FOLDER%\%COMMAND%.fsx" goto :fsx
 if exist "%FOLDER%\%COMMAND%.ps1" goto :ps1
 if exist "%FOLDER%\%COMMAND%.cmd" goto :cmd
+if exist "%FOLDER%\%COMMAND%.dotnet" goto :dotnet
 
 echo.Command handler "%COMMAND%" could not be found in "%FOLDER%"
 goto :error
@@ -51,6 +52,10 @@ goto :done
 
 :cmd
 call :exec cmd /c "%FOLDER%\%COMMAND%.cmd" %ARGS%
+goto :done
+
+:dotnet
+call :exec dotnet run --project "%FOLDER%\%COMMAND%.dotnet" -- %ARGS%
 goto :done
 
 :error
